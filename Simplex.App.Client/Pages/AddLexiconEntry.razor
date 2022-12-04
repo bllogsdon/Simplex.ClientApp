@@ -1,0 +1,24 @@
+﻿@page "/addLexiconEntry"
+@using Microsoft.Extensions.Logging
+@inject ILogger<AddLexiconEntry> Logger
+
+<h3>Add Lexicon Entry </h3>
+
+<EditForm Model="@_model" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="word" @bind-Value="_model.Word" tabindex="1" />
+    <InputText id="definition" @bind-value="_model.Definition" tabindex="2" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private AddLexiconEntryViewModel _model = new();
+
+    public void HandleValidSubmit()
+    {
+        Logger.LogInformation("Model: {@Model}", _model);
+    }
+}
