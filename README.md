@@ -1,0 +1,2 @@
+# Simplex.ClientApp
+Simple Lexicon
